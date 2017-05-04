@@ -42,7 +42,10 @@ def remove_shopping_list(lists_by_name, list_name_to_remove):
     """
 
     # your code here! 
-    pass
+    if list_name_to_remove in lists_by_name:
+        del lists_by_name[list_name_to_remove]
+    else:
+        print "Shopping list doesn't exist."
 
 
 def add_to_shopping_list(lists_by_name, list_name, items):
@@ -175,7 +178,8 @@ def get_menu_choice():
     print '    5 - Remove items(s) from a shopping list.'
     print '    6 - Remove a list by name.'
     print '    7 - Exit the program.\n'
-
+if lists_by_name[list_name_to_remove]:
+        del list_name_to_remove
     choice = int(raw_input('Choose from the menu options: '))
 
     return choice
