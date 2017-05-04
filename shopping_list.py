@@ -83,8 +83,10 @@ def remove_from_shopping_list(lists_by_name, list_name, items):
     if list_name not in lists_by_name:
         print "That list does not exist."
     else:
-        if items in lists_by_name[list_name]:
-            list_name.remove(items)# might  not work
+        #loop through items; for each item in item, we can check if item is
+        #in lists_by_name[list_name]; if it is remove, else item does not exist
+        if item in lists_by_name[list_name]:
+            items.remove(item)# might  not work
         else:
             print "That item does not exist"
 
