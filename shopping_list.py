@@ -58,10 +58,12 @@ def add_to_shopping_list(lists_by_name, list_name, items):
     Returns:
       None
     """
-
+    if list_name not in lists_by_name:
+        print "That list does not exist."
+    else:
+        lists_by_name[list_name].extend(items)
     # your code here! 
-    pass
-
+    
 
 def remove_from_shopping_list(lists_by_name, list_name, items):
     """Remove given items from shopping list.
@@ -95,7 +97,10 @@ def display_shopping_list(lists_by_name, list_name):
     """
 
     # your code here! 
-    pass
+    if list_name not in lists_by_name:
+        print "This list does not exist."
+    else:
+        print list_name
 
 
 def show_all_lists(lists_by_name):
@@ -108,7 +113,7 @@ def show_all_lists(lists_by_name):
     """
 
     # your code here! 
-    pass
+    print lists_by_name
 
 
 def parse_string_of_items(items_string):
@@ -178,8 +183,7 @@ def get_menu_choice():
     print '    5 - Remove items(s) from a shopping list.'
     print '    6 - Remove a list by name.'
     print '    7 - Exit the program.\n'
-if lists_by_name[list_name_to_remove]:
-        del list_name_to_remove
+
     choice = int(raw_input('Choose from the menu options: '))
 
     return choice
