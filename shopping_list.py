@@ -80,7 +80,13 @@ def remove_from_shopping_list(lists_by_name, list_name, items):
     """
 
     # your code here! 
-    pass
+    if list_name not in lists_by_name:
+        print "That list does not exist."
+    else:
+        if items in lists_by_name[list_name]:
+            list_name.remove(items)# might  not work
+        else:
+            print "That item does not exist"
 
 
 def display_shopping_list(lists_by_name, list_name):
