@@ -65,7 +65,7 @@ def add_to_shopping_list(lists_by_name, list_name, items):
     # your code here!
 
 
-def remove_from_shopping_list(lists_by_name, list_name, items):
+def remove_from_shopping_list(lists_by_name, list_name, items_to_be_removed):
     """Remove given items from shopping list.
 
     If an item doesn't exist in the list, print an error, and continue to
@@ -80,15 +80,16 @@ def remove_from_shopping_list(lists_by_name, list_name, items):
     """
 
     # your code here!
-    if list_name not in lists_by_name:
-        print "That list does not exist."
-    else:
-        #loop through items; for each item in item, we can check if item is
-        #in lists_by_name[list_name]; if it is remove, else item does not exist
-        if item in lists_by_name[list_name]:
-            items.remove(item)# might  not work
+    # if list_name not in lists_by_name:
+    #     print "That list does not exist."
+    # else:
+    #loop through items; for each item in items, we can check if item is
+    #in lists_by_name[list_name]; if it is remove, else item does not exist
+    for item_to_be_removed in items_to_be_removed:
+        if item_to_be_removed in lists_by_name[list_name]:
+            lists_by_name[list_name].remove(item_to_be_removed)
         else:
-            print "That item does not exist"
+            print "That item does not exist."
 
 
 def display_shopping_list(lists_by_name, list_name):
