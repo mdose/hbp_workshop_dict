@@ -1,7 +1,7 @@
 """
 Shopping List (Hackbright Prep dictionary code challenge)
 
-Create a dictionary of shopping lists, and be able to 
+Create a dictionary of shopping lists, and be able to
     * add / remove lists
     * add / remove items from lists
 
@@ -21,11 +21,11 @@ def add_new_shopping_list(lists_by_name, new_list_name):
       None
     """
 
-    # your code here! 
-    
-    lists_by_name[new_list_name.lower()] = []
-    
-    
+    # your code here!
+
+    lists_by_name[new_list_name] = []
+
+
 
 
 def remove_shopping_list(lists_by_name, list_name_to_remove):
@@ -41,7 +41,7 @@ def remove_shopping_list(lists_by_name, list_name_to_remove):
       None
     """
 
-    # your code here! 
+    # your code here!
     if list_name_to_remove in lists_by_name:
         del lists_by_name[list_name_to_remove]
     else:
@@ -62,13 +62,13 @@ def add_to_shopping_list(lists_by_name, list_name, items):
         print "That list does not exist."
     else:
         lists_by_name[list_name].extend(items)
-    # your code here! 
-    
+    # your code here!
+
 
 def remove_from_shopping_list(lists_by_name, list_name, items):
     """Remove given items from shopping list.
 
-    If an item doesn't exist in the list, print an error, and continue to 
+    If an item doesn't exist in the list, print an error, and continue to
     attempt to remove the other items.
 
     Arguments:
@@ -79,7 +79,7 @@ def remove_from_shopping_list(lists_by_name, list_name, items):
       None
     """
 
-    # your code here! 
+    # your code here!
     if list_name not in lists_by_name:
         print "That list does not exist."
     else:
@@ -104,11 +104,13 @@ def display_shopping_list(lists_by_name, list_name):
       None
     """
 
-    # your code here! 
+    # your code here!
     if list_name not in lists_by_name:
         print "This list does not exist."
     else:
-        print list_name
+        print list_name + ":"
+        for item in lists_by_name[list_name]:
+            print "  - " + item
 
 
 def show_all_lists(lists_by_name):
@@ -120,8 +122,9 @@ def show_all_lists(lists_by_name):
       None
     """
 
-    # your code here! 
-    print lists_by_name
+    # your code here!
+    for list_name in lists_by_name:
+        display_shopping_list(lists_by_name, list_name)
 
 
 def parse_string_of_items(items_string):
@@ -158,7 +161,7 @@ def edit_shopping_list(lists_by_name, list_name, add_or_remove):
       add_or_remove: string that is either 'add' or 'remove', indicating whether
         the collected items should be added to or removed from the list
     Returns:
-      None          
+      None
 
     """
 
@@ -198,9 +201,9 @@ def get_menu_choice():
 
 
 def execute_repl(shopping_lists_by_name):
-    """Execute the repl loop for the control structure of the program. 
+    """Execute the repl loop for the control structure of the program.
 
-    (REPL stands for Read - Eval - Print Loop. For more info: 
+    (REPL stands for Read - Eval - Print Loop. For more info:
     https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop)
 
     Arguments:
@@ -253,7 +256,7 @@ def execute_repl(shopping_lists_by_name):
             # test to see if the list is in the shopping list dict
             if list_name not in shopping_lists_by_name:
                 # no list by this name :-(
-                print 'There is no {} list.'.format(list_name)            
+                print 'There is no {} list.'.format(list_name)
                 continue
 
             # if the code reaches this point, it means the list exists in the
